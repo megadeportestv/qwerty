@@ -6,8 +6,17 @@
     <title>Tu Página con JWPlayer y Publicidad</title>
 
     <style type="text/css">
-        #player-container {
+        #wrapper {
             position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        #player-container,
+        #ad-container {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
         }
@@ -43,13 +52,18 @@
     </script>
 </head>
 <body>
-    <!-- Contenedor principal del reproductor JWPlayer -->
-    <div id="player-container">
+    <!-- Contenedor principal -->
+    <div id="wrapper">
         <!-- Contenedor del anuncio -->
-        <div id="container-b21f89cf414ba1796d6f6190928010db"></div>
+        <div id="ad-container">
+            <div id="container-b21f89cf414ba1796d6f6190928010db"></div>
+        </div>
 
-        <!-- Reproductor JWPlayer -->
-        <div id="player"></div>
+        <!-- Contenedor del reproductor JWPlayer -->
+        <div id="player-container">
+            <!-- Reproductor JWPlayer -->
+            <div id="player"></div>
+        </div>
     </div>
 
     <!-- Scripts de JWPlayer -->
