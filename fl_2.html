@@ -1,7 +1,6 @@
-
 <html lang="es">
 <head>
-  <script type='text/javascript' src='//pl21088929.toprevenuegate.com/7d/3b/26/7d3b2636b068dd824d816fb68627e10f.js'></script>
+<script type='text/javascript' src='//pl18559392.highcpmrevenuenetwork.com/f6/75/26/f67526fb5e97a46e74f2e63c1a1d8bd8.js'></script>    
 </head>    
 <meta name=robots content=noindex />
 <style>body{margin:0;padding:0}</style>
@@ -23,86 +22,42 @@ var getKEY2  = getParameterByName('key2');
 </script>
 <div id="player"></div>
 <script>
-var mt = ["//edge-live01-mun", "//edge-live01-bel", "//edge-live12-sl", "//edge-live13-sl", "//edge-live16-sl", "//edge-live31-sl", "//edge-live32-sl", "//edge-vod06-sl", "//edge9-sl", "//edge5-hr", "//edge6-hr", "//edge-vod01-hr", "//edge-vod02-hr", "//edge-vod04-hr", "//edge2-ccast-sl", "//edge7-ccast-sl", "//edge-mix02-cte"];
+var mt = ["edge-live01-bel", "edge-live12-sl", "edge-vod01-hr", "edge-vod02-hr"];
+var random = Math.floor(Math.random() * mt.length);
 var playerInstance = jwplayer("player");
 
-function initializePlayer(autoplay) {
-  var random = Math.floor(Math.random() * mt.length);
-  playerInstance.setup({
+playerInstance.setup({
     playlist: [{
       title : "REPRODUCTOR | Mega Deportes TV",
-      description: "megadeportestv2.com",
-      "sources": [
-        {
-          "default": false,
-          "type": "dash",
-          "file": mt[random] + atob(getURL), 
-          "drm": {
-            "clearkey": { "keyId": atob(getKEY), "key": atob(getKEY2)}
-          },
-          "label": "0"
-        }
-      ]
+      description: "megadeportes.xyz",
+        "sources": [
+            {
+                "default": false,
+                "type": "dash",
+                "file": mt[random] + atob(getURL), 
+                "drm": {
+                    "clearkey": { "keyId": atob(getKEY), "key": atob(getKEY2)}
+                },
+                "label": "0"
+            }
+        ]
     }],
     width: "100%",
     height: "100%",
     aspectratio: "16:9",
-    autostart: autoplay, 
+    autostart: false,
     cast: {},
     sharing: {}
-  });
-}
+});
 
 if (getLang == "") {
-  var lang = 1;
+    var lang = 1;
 } else {
-  var lang = parseInt(getLang); 
+    var lang = parseInt(getLang); 
 }
 
 jwplayer().on('play', function(e) {
   jwplayer().setCurrentAudioTrack(lang);
 });
-
-function tryInitialize() {
-  initializePlayer(false); 
-  playerInstance.on('error', function(e) {
-    if (e.code === 241401 || e.code === 241403 || e.code === 241404) {
-
-      setTimeout(tryInitialize, 1000);
-    }
-  });
-}
-
-function checkAndInitialize(mtUrl) {
-  checkMtStatus(mtUrl, function(status) {
-    if (status === 200) {
-
-      initializePlayer(true);
-    } else {
-
-      setTimeout(function() {
-        random = Math.floor(Math.random() * mt.length);
-        checkAndInitialize(mt[random]);
-      }, 1000);
-    }
-  });
-}
-
-function checkMtStatus(mtUrl, callback) {
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        callback(200);
-      } else {
-        callback(xhr.status);
-      }
-    }
-  };
-  xhr.open('HEAD', mtUrl, true);
-  xhr.send();
-}
-
-tryInitialize();
 </script>
 </html>
