@@ -23,6 +23,7 @@ var getKEY2  = getParameterByName('key2');
 <div id="player"></div>
 <script>
 var mt = ["//edge-live01-mun", "//edge-live01-bel", "//edge-live13-sl", "//edge-live16-sl", "//edge-live31-sl", "//edge-vod06-sl", "//edge9-sl", "//edge5-hr", "//edge-vod01-hr", "//edge-vod04-hr", "//edge2-ccast-sl", "//edge7-ccast-sl", "//edge-mix02-cte"];
+function initializePlayer(autoplay) {
 var random = Math.floor(Math.random() * mt.length);
 var playerInstance = jwplayer("player");
 
