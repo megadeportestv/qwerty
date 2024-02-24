@@ -49,7 +49,7 @@ var random = Math.floor(Math.random() * 10) + 1;
 var formattedRandom = random.toString().padStart(2, '0');
 var random2 = Math.floor(Math.random() * 2) + 1;
 
-var mt = ["edge-live01-mun", "edge-live01-bel", "edge-vod06-sl", "edge-vod01-hr", "edge-vod03-hr", "edge2-ccast-sl", "edge7-ccast-sl", "edge-live02-cen", "edge-mix01-cte", "edge-mix02-cte"];
+var mt = ["edge-live01-mun", "edge-live01-bel", "edge-vod06-sl", "edge-vod01-hr", "edge-vod03-hr", "edge2-ccast-sl", "edge7-ccast-sl", "edge-live02-cen", "edge-mix02-cte"];
 var random = Math.floor(Math.random() * mt.length)
 
 var mpd = "//" + mt[random] + ".cvattv.com.ar/live/c"+number+"eds/"+atob(getURL)+"/SA_Live_dash_enc/"+atob(getURL)+".mpd";
